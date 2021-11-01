@@ -1,0 +1,12 @@
+{
+  "productId": "be0001",
+  "productName": "Bespoke Lounge",
+  "productSub": "Kompletterar en formstark familj",
+  "productDesc": "Höstens produktnyhet hos Swedese är en ny medlem i en befintlig produktfamilj. Med sitt nätta och minimalistiska uttryck passar Bespoke-borden in i många olika miljöer och är lätta att kombinera med andra möbler.",
+  "envImage": "https://spoton-devtest.s3.eu-north-1.amazonaws.com/media/112a3348-d9bc-4dd4-a725-32de45be74a1.webp",
+  "prodImage": "https://spoton-devtest.s3.eu-north-1.amazonaws.com/media/123b3f48-d9bc-4df4-a725-2fde45be74a6.webp",
+  "linkBoxTitle": "Höstens nyhet",
+  "link": "https://www.swedese.se/stories/bespoke-lounge",
+  "linkText": "Läs mer",
+  "linkBgColor": "#38361f"
+}
