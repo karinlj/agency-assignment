@@ -56,19 +56,8 @@ const ProductPage = () => {
   }, [productId]);
 
   const clickLink = (id) => {
-    //id= argument in clickLink() from Navlinks component
-    console.log("NavBar_clickLink_id", id);
     setProductId(id);
   };
-
-  useEffect(() => {
-    console.log("ProductPage_productId:", productId);
-    singleProduct &&
-      console.log(
-        "ProductPage_singleProduct_productId:",
-        singleProduct.productId
-      );
-  }, [productId]);
 
   return (
     <div className="row no-gutters">
@@ -78,7 +67,6 @@ const ProductPage = () => {
       <div className="col-12 col-lg-6 order-first order-lg-last images">
         <ImageSection product={singleProduct} />
       </div>
-
       <div className="col-12 col-lg-6 order-last order-lg-first content">
         <ContentSection product={singleProduct} />
       </div>

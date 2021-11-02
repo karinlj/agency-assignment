@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Navlinks from "./Navlinks";
 import ToggleBtn from "./ToggleBtn";
-//import logo from "../assets/logo.svg";
 
 const NavBar = ({ products, clickLink }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -11,7 +10,6 @@ const NavBar = ({ products, clickLink }) => {
     setMobileOpen(!mobileOpen);
     setBtnClicked(!btnClicked);
   };
-
   const handleClickLink = (id) => {
     clickLink(id);
     if (mobileOpen) {
@@ -21,7 +19,6 @@ const NavBar = ({ products, clickLink }) => {
       setBtnClicked(false);
     }
   };
-
   //prevent scroll when mobile menu is open
   useEffect(() => {
     document.body.classList.toggle("no_scroll", mobileOpen);
@@ -59,8 +56,6 @@ const NavBar = ({ products, clickLink }) => {
 	c2.4-3.1,5-9.9,5-16.8c0-6.5-2.3-13.7-4.7-16.8C124.2,37.5,117.8,35.2,114.2,35.2z"
               />
             </svg>
-
-            {/* <img src={logo} alt="logo" className="logo" /> */}
             <ToggleBtn handleClick={toggleMenu} btnClicked={btnClicked} />
           </nav>
           {/* toggle open-class */}
