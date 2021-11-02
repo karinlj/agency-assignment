@@ -15,8 +15,6 @@ To run
 
 `npm start`
 
-`npm run server`
-
 ## To build
 
 `npm run build`
