@@ -72,14 +72,15 @@ const ProductPage = () => {
 
   return (
     <div className="row no-gutters">
-      <div className="col-6">
-        {error && <div className="error">{error}</div>}
-        {isLoading && <div className="loading">Loading...</div>}
-        <NavBar clickLink={clickLink} products={products} />
-        <ContentSection product={singleProduct} />
-      </div>
-      <div className="col-6">
+      {error && <div className="error">{error}</div>}
+      {isLoading && <div className="loading">Loading...</div>}
+      <NavBar clickLink={clickLink} products={products} />
+      <div className="col-12 col-lg-6 order-first order-lg-last images">
         <ImageSection product={singleProduct} />
+      </div>
+
+      <div className="col-12 col-lg-6 order-last order-lg-first content">
+        <ContentSection product={singleProduct} />
       </div>
     </div>
   );
