@@ -1,52 +1,18 @@
-import { useState, useEffect } from "react";
-
-const ImageSection = () => {
-  const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const productId = "w3245";
-  const productsUrl =
-    "https://86ypveeq84.execute-api.eu-central-1.amazonaws.com/production/products/";
-  const singleProductUrl = productsUrl + productId;
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const result = await fetch(singleProductUrl);
-        if (!result.ok) {
-          console.log("result:", result);
-          throw Error("Fetch data error: " + result.statusText);
-        }
-        const data = await result.json();
-        setProduct(data);
-        setIsLoading(false);
-        setError(null);
-      } catch (err) {
-        console.log("error:", err);
-        setError("Ooops!! Could not fetch data...");
-      }
-    };
-    getProduct();
-  }, []);
-
+const ImageSection = ({ product }) => {
   return (
     <section className="image_section">
       <div className="container">
         <div className="row no-gutters">
           <div className="col-12">
             <div className="big_image">
-              {error && <div className="error">{error}</div>}
-              {isLoading && <div className="loading">Loading...</div>}
-              {/* {products &&
-                products.map((item) => {
-                  return <div key={item.productId}>{item.productName}</div>;
-                })} */}
-              {product && <img src={product.envImage} />}
+              {product && <img src={product.envImage} alt={product.envImage} />}
             </div>
           </div>
           <div className="col-6">
             <div className="small_image">
-              {product && <img src={product.prodImage} />}
+              {product && (
+                <img src={product.prodImage} alt={product.prodImage} />
+              )}
             </div>
           </div>
           <div className="col-6">
@@ -68,5 +34,4 @@ const ImageSection = () => {
     </section>
   );
 };
-
 export default ImageSection;

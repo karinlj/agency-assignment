@@ -3,19 +3,19 @@ import Navlinks from "./Navlinks";
 import ToggleBtn from "./ToggleBtn";
 import logo from "../assets/logo.svg";
 
-const NavBar = () => {
+const NavBar = ({ products, clickLink }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [btnClicked, setBtnClicked] = useState(false);
 
   const toggleMenu = () => {
-    //click on btn -> menu toggle
     setMobileOpen(!mobileOpen);
-    //click on btn -> toggle class on btn
     setBtnClicked(!btnClicked);
   };
-  //click on link -> menu closing
-  //click on link -> class changing in ToggleBtn
-  const clickLink = () => {
+
+  const handleClickLink = (id) => {
+    clickLink(id);
+    //click on link -> menu closing
+    //click on link -> class changing in ToggleBtn
     if (mobileOpen) {
       setMobileOpen(false);
     }
@@ -29,11 +29,6 @@ const NavBar = () => {
     document.body.classList.toggle("no_scroll", mobileOpen);
   }, [mobileOpen]);
 
-  useEffect(() => {
-    // console.log("mobileOpen_NavBar", mobileOpen);
-    // console.log("btnClicked_NavBar", btnClicked);
-  }, [mobileOpen, btnClicked]);
-
   return (
     <header className="nav_header" id="nav">
       <div className="container">
@@ -46,7 +41,7 @@ const NavBar = () => {
             </nav>
             {/* toggle open-class */}
             <nav className={`navbar mobile ${mobileOpen ? "open" : ""}`}>
-              <Navlinks clickLink={clickLink} />
+              <Navlinks clickLink={handleClickLink} products={products} />
             </nav>
           </div>
         </div>
